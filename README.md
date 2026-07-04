@@ -2,8 +2,16 @@
 Technical Test Questions for Data Engineer
 
 ## Setup
-1. Built on WSL2, Ubuntu
-1.
+1. Dependencies/Versions:
+    1. git version 2.34.1
+    1. Python 3.10.12
+    1. pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+    1. openjdk version "17.0.19" 2026-04-21
+    1. OpenJDK Runtime Environment (build 17.0.19+10-1-22.04.2-Ubuntu)
+    1. OpenJDK 64-Bit Server VM (build 17.0.19+10-1-22.04.2-Ubuntu, mixed mode, sharing) 4.1.2
+    1. Docker version 29.6.1, build 8900f1d
+    1. Docker Compose version v5.3.0
+1. 
 1.
 
 ## Assumptions Made
