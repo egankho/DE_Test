@@ -1,6 +1,20 @@
 # DE_Test
 Technical Test Questions for Data Engineer
 
+## Setup
+1. Built on WSL2, Ubuntu
+1.
+1.
+
+## Assumptions Made
+1. The input in Dataset A has well-defined `item_names`. For example, if Item A is detected, it will always be named "Item A" and not "A" or "ItemA" or "Item 1".
+1. Counting each `detection_oid` only once entails that if there are multiple rows with the same `detection_oid`, the row with the smaller `timestamp_detected` will be considered. If an older timestamp is read, it will be disregarded. If a smaller timestamp is read, then the previously read item has its count reduced and the timestamp is noted.
+
+
+---
+
+## Background
+
 ## Prompt
 
 1. As a Data Engineer, you are tasked to compute the top X items identified by video cameras in different geographical locations in the Town of Utopia. Your boss wants to know what are the most popular few items detected through object detection algorithms by your Data Scientist Coworkers.
@@ -55,7 +69,3 @@ Parquet file, ~ <= 1 million rows
 | `geographical_location_oid` | bigint| A unique bigint identifier for the geographical location |
 | `item_rank` | int | `item_rank = 1` corresponds to the most popular item detected in `geographical_location` |
 | `item_name` | varchar(5000) | Item name |
-
-## Assumptions Made
-1. The input in Dataset A has well-defined `item_names`. For example, if Item A is detected, it will always be named "Item A" and not "A" or "ItemA" or "Item 1".
-1. Counting each `detection_oid` only once entails that if there are multiple rows with the same `detection_oid`, the row with the smaller `timestamp_detected` will be considered. If an older timestamp is read, it will be disregarded. If a smaller timestamp is read, then the previously read item has its count reduced and the timestamp is noted.
