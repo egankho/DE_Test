@@ -5,18 +5,14 @@ Technical Test Questions for Data Engineer
 1. Dependencies/Versions:
     1. git version 2.34.1
     1. Python 3.10.12
-    1. pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
     1. openjdk version "17.0.19" 2026-04-21
-    1. OpenJDK Runtime Environment (build 17.0.19+10-1-22.04.2-Ubuntu)
-    1. OpenJDK 64-Bit Server VM (build 17.0.19+10-1-22.04.2-Ubuntu, mixed mode, sharing) 4.1.2
-    1. Docker version 29.6.1, build 8900f1d
-    1. Docker Compose version v5.3.0
 1. 
-1.
 
 ## Assumptions Made
 1. The input in Dataset A has well-defined `item_names`. For example, if Item A is detected, it will always be named "Item A" and not "A" or "ItemA" or "Item 1".
+1. Item A detected in Location 1 and Item A detected in Location 2 are both reported
 1. Counting each `detection_oid` only once entails that if there are multiple rows with the same `detection_oid`, the row with the smaller `timestamp_detected` will be considered. If an older timestamp is read, it will be disregarded. If a smaller timestamp is read, then the previously read item has its count reduced and the timestamp is noted.
+1. When producing a "Top X", the resulting list will only include locations detailed in Dataset B. If there are locations in Dataset A that do not appear in B, they are disregarded.
 
 
 ---
