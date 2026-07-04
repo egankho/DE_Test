@@ -1,5 +1,4 @@
-"""
-CLean input dataset from duplicates to handle Dataset A issues.
+"""Clean input dataset from duplicates to handle Dataset A issues.
 
 Take lowest timestamp as source of truth.
 """
@@ -14,7 +13,9 @@ V = TypeVar("V")
 
 def dedup_key(rdd: "RDD[T]", key_fn: Callable[[T], K],
               order_fn: Callable[[T], V]) -> "RDD[T]":
-
+    """remove duplicate keys (key_fn),
+    selecting for the lowest value in (order_fn)
+    """
     def keep_lowest(left: T, right: T) -> T:
         return left if order_fn(left) <= order_fn(right) else right
 
