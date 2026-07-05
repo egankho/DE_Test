@@ -5,7 +5,7 @@ Use customized SparkSession object for testing.
 from pyspark.sql import SparkSession
 
 
-def get_spark_session(app_name: str = "top-x-items",
+def get_spark_session(app_name: str = "top-x",
                       master: str = "local[*]",
                       shuffle_partitions: int = 8) -> SparkSession:
 

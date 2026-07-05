@@ -1,11 +1,24 @@
 # DE_Test
 Technical Test Questions for Data Engineer
 
-## Setup
-1. Dependencies/Versions:
-    1. git version 2.34.1
-    1. Python 3.10.12
-    1. openjdk version "17.0.19" 2026-04-21
+## Structure
+```
+├── docs
+├── scripts
+├── src
+│   └── topx
+│       ├── jobs
+│       ├── transformations
+│       └── utils
+└── tests
+    ├── integration
+    └── unit
+```
+
+## Setup & Run
+1. Run `setup.sh` to verify and install the necessary dependencies for pipeline to run.
+1. Run `./scripts/test_with_sample_data.sh` in the root directory to test with sample data.
+1. For non-sample Parquet test files, kindly run `python -m topx --input-a <PATH to Dataset A> --input-b <PATH to Dataset B> --output <PATH to Output> --top-x <X Configuration>`.
 1. 
 
 ## Assumptions Made
@@ -13,18 +26,18 @@ Technical Test Questions for Data Engineer
 1. Item A detected in Location 1 and Item A detected in Location 2 are both reported
 1. Counting each `detection_oid` only once entails that if there are multiple rows with the same `detection_oid`, the row with the smaller `timestamp_detected` will be considered. If an older timestamp is read, it will be disregarded. If a smaller timestamp is read, then the previously read item has its count reduced and the timestamp is noted.
 1. When producing a "Top X", the resulting list will only include locations detailed in Dataset B. If there are locations in Dataset A that do not appear in B, they are disregarded.
+1. Written components of the assessment are in `/docs`.
 
+<br><br>
 
----
-
-## Background
+# Background
 
 ## Prompt
 
 1. As a Data Engineer, you are tasked to compute the top X items identified by video cameras in different geographical locations in the Town of Utopia. Your boss wants to know what are the most popular few items detected through object detection algorithms by your Data Scientist Coworkers.
 1. Prepare unit test / integration test cases based on the data given. The integration test shall prove that the entire PySpark job can be run on a local spark test dev environment.
-1. Suppose there is data skew in one of the geographical locations in Dataset A. Provide another code snippet on how to re-implement part of the program to speed up the computation. **Refer to `func_ABC`**
-1. Explain the different sorting strategies in Spark and which strategy to adopt when joining Parquet File 1 and 2 if implementing the code in Spark Dataframe. **Refer to sorting.pdf**
+1. Suppose there is data skew in one of the geographical locations in Dataset A. Provide another code snippet on how to re-implement part of the program to speed up the computation.
+1. Explain the different sorting strategies in Spark and which strategy to adopt when joining Parquet File 1 and 2 if implementing the code in Spark Dataframe.
 
 
 ## Requirements
