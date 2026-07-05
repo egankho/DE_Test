@@ -219,3 +219,4 @@ __marimo__/
 
 # Test data
 data
+.vscode/settings.json
