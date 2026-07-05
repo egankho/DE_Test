@@ -5,9 +5,7 @@ Technical Test Questions for Data Engineer
 ```
 ├── docs
 ├── scripts
-├── src
-│   └── topx
-│       ├── jobs
+├── src/topx
 │       ├── transformations
 │       └── utils
 └── tests
@@ -18,8 +16,7 @@ Technical Test Questions for Data Engineer
 ## Setup & Run
 1. Run `setup.sh` to verify and install the necessary dependencies for pipeline to run.
 1. Run `./scripts/test_with_sample_data.sh` in the root directory to test with sample data.
-1. For non-sample Parquet test files, kindly run `python -m topx --input-a <PATH to Dataset A> --input-b <PATH to Dataset B> --output <PATH to Output> --top-x <X Configuration>`.
-1. 
+1. To run against Parquet test files, kindly run `python -m topx --input-a <PATH to Dataset A> --input-b <PATH to Dataset B> --output <PATH to Output> --top-x <X Configuration>`.
 
 ## Assumptions Made
 1. The input in Dataset A has well-defined `item_names`. For example, if Item A is detected, it will always be named "Item A" and not "A" or "ItemA" or "Item 1".
@@ -36,7 +33,7 @@ Technical Test Questions for Data Engineer
 
 1. As a Data Engineer, you are tasked to compute the top X items identified by video cameras in different geographical locations in the Town of Utopia. Your boss wants to know what are the most popular few items detected through object detection algorithms by your Data Scientist Coworkers.
 1. Prepare unit test / integration test cases based on the data given. The integration test shall prove that the entire PySpark job can be run on a local spark test dev environment.
-1. Suppose there is data skew in one of the geographical locations in Dataset A. Provide another code snippet on how to re-implement part of the program to speed up the computation.
+1. Suppose there is data skew in one of the geographical locations in Dataset A. Provide another code snippet on how to re-implement part of the program to speed up the computation. Refer to `skew_handling.py`
 1. Explain the different sorting strategies in Spark and which strategy to adopt when joining Parquet File 1 and 2 if implementing the code in Spark Dataframe.
 
 
@@ -54,7 +51,7 @@ Technical Test Questions for Data Engineer
 1. Use design patterns
 1. Consider optimality of the time/space complexity of the code and the shuffle stages
     1. Bonus if "join" is performed without explicit use of `.join`
-1. Document considerations when designing code and spark configurations. Refer to **considerations.txt**
+1. Document considerations when designing code and spark configurations.
 
 ## Data Models
 
